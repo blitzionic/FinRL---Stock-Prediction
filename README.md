@@ -1,5 +1,3 @@
-Project Proposal.
-
 ### FinRL Transformer Models ###  
 Spring 2024 Project Proposal
 
