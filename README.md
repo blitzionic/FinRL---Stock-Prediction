@@ -1,11 +1,5 @@
 Project Proposal.
 
-Co-authored-by: DavidASC20 <djchong24@gmail.com>
-Co-authored-by: jiec137 <revinchen21@gmail.com>
-Co-authored-by: yZzzC <2004yzc@gmail.com>
-Co-authored-by: hli2238 <hwli2238@gmail.com>
-Co-authored-by: dlin04 <hwli2238@gmail.com># FinRL---Stock-Prediction
-
 ### FinRL Transformer Models ###  
 Spring 2024 Project Proposal
 
