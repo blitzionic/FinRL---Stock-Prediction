@@ -57,3 +57,6 @@ Compose a written report on the evaluation (ALL)
 Organize results into Google Slides for presentation (ALL)
 
 Project Link  https://github.com/blitzionic/FinRL---Stock-Prediction
+
+
+[Yahoo Downloader using yfinance to fetch data from Yahoo Finance](https://github.com/AI4Finance-Foundation/FinRL/blob/master/finrl/meta/preprocessor/yahoodownloader.py)
