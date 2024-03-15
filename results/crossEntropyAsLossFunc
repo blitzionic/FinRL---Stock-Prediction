@@ -1,0 +1,16 @@
+import torch
+import torch.nn as nn
+
+def cross_entropy_loss(outputs, targets):
+    criterion = nn.CrossEntropyLoss()
+    return criterion(outputs, targets)
+
+
+
+# need to import preprocessed data to calculate loss
+#outputs = 
+#targets = 
+
+
+loss = cross_entropy_loss(outputs, targets)
+print(loss)
