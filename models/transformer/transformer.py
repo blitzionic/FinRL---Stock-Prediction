@@ -1,45 +1,31 @@
+import pandas as pd
+import numpy as np
 import torch
-from torch import nn
+from torch.utils.data import DataLoader, Dataset
+import torch.nn as nn
+import torch.optim as optim
 
-from decoder import Decoder
-from encoder import Encoder
 
 
 class Transformer(nn.Module):
-    def __init__(self, src_pad_idx, trg_pad_idx, trg_sos_idx, enc_voc_size, dec_voc_size, d_model, n_head, max_len,
-                 ffn_hidden, n_layers, drop_prob, device, output_dim):
+    def __init__(self, feature_size, num_layers, num_heads, forward_expansion, dropout, max_len):
         super(Transformer, self).__init__()
-        self.src_pad_idx = src_pad_idx
-        self.trg_pad_idx = trg_pad_idx
-        self.trg_sos_idx = trg_sos_idx
-        self.device = device
+        self.embedding = nn.Linear(1, feature_size) 
+        self.pos_embedding = nn.Parameter(torch.zeros(1, max_len, feature_size))
+        self.encoder = nn.TransformerEncoder(
+            nn.TransformerEncoderLayer(
+                d_model=feature_size,
+                nhead=num_heads,
+                dim_feedforward=forward_expansion * feature_size,
+                dropout=dropout
+            ),
+            num_layers=num_layers
+        )
+        self.fc_out = nn.Linear(feature_size, 1)  # output layer
 
-        # Using Transformer Embedding
-        self.encoder = Encoder(enc_voc_size, max_len, d_model, ffn_hidden, n_head, n_layers, drop_prob, device)
-        self.decoder = Decoder(dec_voc_size, max_len, d_model, ffn_hidden, n_head, n_layers, drop_prob, device)
-
-        # Output layer to predict continuous values
-        self.output_linear = nn.Linear(d_model, output_dim)
-
-    def forward(self, src, trg):
-        src_mask = self.make_src_mask(src)
-        trg_mask = self.make_trg_mask(trg)
-
-        # Encoder and decoder
-        enc_src = self.encoder(src, src_mask)
-        output = self.decoder(trg, enc_src, trg_mask, src_mask)
-
-        # Apply the output linear layer
-        output = self.output_linear(output)
-        return output
-
-    def make_src_mask(self, src):
-        src_mask = (src != self.src_pad_idx).unsqueeze(1).unsqueeze(2)
-        return src_mask
-
-    def make_trg_mask(self, trg):
-        trg_pad_mask = (trg != self.trg_pad_idx).unsqueeze(1).unsqueeze(3)
-        trg_len = trg.shape[1]
-        trg_sub_mask = torch.tril(torch.ones(trg_len, trg_len)).type(torch.ByteTensor).to(self.device)
-        trg_mask = trg_pad_mask & trg_sub_mask
-        return trg_mask
+    def forward(self, src):
+        src = self.embedding(src)  
+        # ensure src is [batch_size, seq_length, feature_size]
+        src = src + self.pos_embedding[:, :src.size(1)]  
+        out = self.encoder(src)
+        return self.fc_out(out[:, -1, :])  # Output from the last timestep
