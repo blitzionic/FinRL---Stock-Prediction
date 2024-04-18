@@ -29,32 +29,31 @@ lih40@rpi.edu
 
 
 ### Milestones ###
-Project Initialization & Planning
-Gather up materials (ALL)
-Published researches 
-Previous relevant project 
-Review necessary machine learning topics (ALL)
-Learning Phase (Mid-Feb)
-Learning ARMA + Regression LTSM model + Transformer for practice (ALL)
-Data Pipelining & Collection (End of Fed)
-Collect and preprocess data from Yahoo Finance (Andy, Yun Zhe)
-Compose a time series for collected data (Hongwei, David)
-Testing Long Short-Term Memory Model (Mid-March) 
-Apply standard LSTM model training using PyTorch (Yun Zhe)
-Implement and test the LSTM model by employing Mean Squared Error and Mean Absolute Error as loss functions (Hongwei, David, Derrick)
-Report current progress for discussion (Anytime with new findings)
-Testing Transformer Model (Mid-April) 
-Apply standard transformer model training using PyTorch (Yun Zhe, Andy)
-Implement and test the transformer model by employing Mean Squared Error and Mean Absolute Error as loss functions (Andy, Yun Zhe)
-Cross-Entropy Loss Functions Evaluation (End of March)
-Implement cross-entropy to test the transformer model as a loss function (Wenjie, Yun Zhe)
-Analyze results (Wenjie)
-Finalize Findings & Interpretation (End of April) 
-Conduct compare and contrast for LSTM and transformer models (Yun Zhe, Andy)
-Compose a written report on the evaluation (ALL)
-Organize results into Google Slides for presentation (ALL)
+## Project Initialization & Planning ##
+* Gather up resources
+* Review published research 
+* Review relevant machine learning topics and become familiar with Pytorch 
+## Study Phase ## 
+* Learning ARMA + Regression LTSM model + Transformer for practice
+# Data Pipelining & Collection # 
+* Collect and preprocess data from Yahoo Finance 
+* Compose a time series for collected data 
+# Testing Long Short-Term Memory Model #  
+* Apply standard LSTM model training using PyTorch
+* Implement and test the LSTM model by employing Mean Squared Error and Mean Absolute Error as loss functions 
+* Report current progress for discussion with professor
+# Testing Transformer Model #  
+* Apply standard transformer model training using PyTorch 
+* Implement and test the transformer model by employing Mean Squared Error and Mean Absolute Error as loss functions
+# Cross-Entropy Loss Functions Evaluation # 
+* Implement cross-entropy to test the transformer model as a loss function
+* Analyze results
+# Finalize Findings & Interpretation #
+* Conduct compare and contrast for LSTM and transformer models 
+* Prepare poster for presentation 
 
 Project Link  https://github.com/blitzionic/FinRL---Stock-Prediction
 
-
-[Yahoo Downloader using yfinance to fetch data from Yahoo Finance](https://github.com/AI4Finance-Foundation/FinRL/blob/master/finrl/meta/preprocessor/yahoodownloader.py)
+Resoures: 
+* https://github.com/AI4Finance-Foundation/FinRL
+* [Yahoo Downloader using yfinance to fetch data from Yahoo Finance](https://github.com/AI4Finance-Foundation/FinRL/blob/master/finrl/meta/preprocessor/yahoodownloader.py)
