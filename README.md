@@ -1,19 +1,17 @@
-### FinRL Transformer Models ###  
-Spring 2024 Project Proposal
+### FinRL Transformer Models ###
 
 ### Description ### 
-The objective of this project is to conduct an empirical study into the training performance of transformer models in the context of different machine learning loss functions starting with a stock prediction model from Yahoo Finance data mainly using Pytorch.
+The objective is to conduct an empirical study into the training and performance of transformer models under different loss functions. We leverage Yahoo Finance, Pytorch, and various machine learning modules.
 
 ### Goals ###
-Assess the effectiveness of employing Mean Squared Error and Mean Absolute Error as loss functions in transformers in Large Language Models.
-Evaluate the impact of Cross-Entropy Loss on transformers, for time series predictions.
-Contrast and compare results processed from Long Short-Term Memory and Transformers.
-Establish a robust baseline model as a basis for FinAL’s reinforcement models.
+* Assess the effectiveness of employing Mean Squared Error and Mean Absolute Error as loss functions in transformer models.
+* Evaluate the impact of Cross-Entropy Loss on transformers, for time series predictions.
+* Contrast and compare results processed from Long Short-Term Memory and Transformers.
+* Establish a robust baseline model as a basis for FinRL’s reinforcement models.
 
 ### Stack ###
 PyTorch 
 Python
-R
 
 ### Members - under the guidance of Prof. Yanglet Xiao-Yang Liu ### 
 Yun Zhe Chen (Project Lead)
