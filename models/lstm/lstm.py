@@ -22,7 +22,6 @@ class LSTMModel(nn.Module):
         output, _ = self.lstm(src)
         # Decoding the output at each time step
         output = self.decoder(output)  # Apply linear layer to each time step
-        print(output.shape)
         return output
     
 '''Test LSTM Model'''   
