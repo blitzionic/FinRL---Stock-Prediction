@@ -1,9 +1,6 @@
 import torch
 import torch.nn as nn
 
-import torch
-import torch.nn as nn
-
 class LSTMModel(nn.Module):
     def __init__(self, feature_size=200, hidden_size=200, num_layers=2, dropout=0.1):
         super(LSTMModel, self).__init__()
@@ -16,12 +13,9 @@ class LSTMModel(nn.Module):
         self.decoder = nn.Linear(hidden_size, 1)
 
     def forward(self, src):
-        # Ensuring the LSTM weights are contiguous in memory
-        self.lstm.flatten_parameters()
-        # LSTM output: (batch, seq_len, num_directions * hidden_size)
-        output, _ = self.lstm(src)
-        # Decoding the output at each time step
-        output = self.decoder(output)  # Apply linear layer to each time step
+        self.lstm.flatten_parameters()  # Ensuring the LSTM weights are contiguous in memory
+        output, _ = self.lstm(src)      # LSTM output: (batch, seq_len, hidden_size)
+        output = self.decoder(output)   # Apply linear layer to each time step
         return output
     
 '''Test LSTM Model'''   
@@ -35,7 +29,7 @@ def test_lstm():
     seq_len = 20
 
     model = LSTMModel(feature_size, hidden_size, num_layers, dropout)
-    model.eval()  # Evaluate mode, if the model contains specific layers like dropout
+    model.eval()  # Evaluate mode
 
     input_tensor = torch.randn(batch_size, seq_len, feature_size)
     output_tensor = model(input_tensor)
